@@ -5,10 +5,11 @@
 #     strategy_description: a string
 #     move: A function that returns 'c' or 'b'
 ####
+import random
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+team_name = 'RadicalRad' # Only 10 chars displayed.
+strategy_name = 'Random then Game Theory'
+strategy_description = 'Random for the first 10 rounds and then it always betrays.'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
@@ -26,8 +27,31 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
-
+    if len(my_history)<=10:
+        num = random.randint(1,101)
+        if num <=10:
+            return 'b'
+        else:
+            return 'c'
+    else:
+        myLastMove = my_history[-1]
+        cCount=0
+        bCount=0
+        for i in range(len(their_history)):
+            if i!=0 and my_history[i]==myLastMove:
+                if their_history[i-1]=='c' or their_history[i-1]=='C' :
+                    cCount+=1
+                elif their_history[i-1]=='b' or their_history[i-1]=='B':
+                    bCount+=1
+        num = random.randint(1,cCount+bCount)
+        if num<=bCount:
+            return 'b'
+        else:
+            num = random.randint(1,101)
+            if num < 05:
+                return 'b'
+            else:
+                return 'c'
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
