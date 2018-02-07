@@ -7,8 +7,8 @@
 ####
 
 team_name = 'RoundTable' # Only 10 chars displayed.
-strategy_name = 'Copy Kitten'
-strategy_description = 'Collude unless betrayed a specific amount of times in a row'
+strategy_name = 'Copy Kitten Alternative'
+strategy_description = 'Betray first two rounds then Collude until betrayed a specific amount of times in a row'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
