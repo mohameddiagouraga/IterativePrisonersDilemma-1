@@ -27,7 +27,7 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    if len(my_history)<=30:
+    if len(my_history)<=10:
         num = random.randint(1,101)
         if num <=50:
             return 'b'
@@ -39,9 +39,9 @@ def move(my_history, their_history, my_score, their_score):
         bCount=0
         for i in range(len(their_history)):
             if i!=0 and my_history[i]==myLastMove:
-                if their_history[i-1]=='c':
+                if their_history[i-1]=='c' or their_history[i-1]=='C' :
                     cCount+=1
-                elif their_history[i-1]=='b':
+                elif their_history[i-1]=='b' or their_history[i-1]=='B':
                     bCount+=1
         num = random.randint(1,cCount+bCount)
         if num<=bCount:
