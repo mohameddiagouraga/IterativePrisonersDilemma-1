@@ -28,7 +28,7 @@ def move(my_history, their_history, my_score, their_score):
     if len(my_history) <= 2:
         return 'b'
     elif len(my_history) > 2:
-        if 'bbbbbbbbbb' in their_history:
+        if 'bbbbb' in their_history:
             return 'b'
         else:    
             return 'c'
