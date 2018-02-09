@@ -9,7 +9,7 @@
 team_name = 'RoundTable' # Only 10 chars displayed.
 strategy_name = 'Copy Kitten Alternative'
 strategy_description = 'Betray first two rounds then Collude until betrayed a specific amount of times in a row'
-    
+import random
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
@@ -25,13 +25,21 @@ def move(my_history, their_history, my_score, their_score):
     
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
+    
     if len(my_history) <= 2:
         return 'b'
-    elif len(my_history) > 2:
-        if 'bbbbb' in their_history:
-            return 'b'
-        else:    
-            return 'c'
+    else:
+        if len(my_history) >= 200:
+            num = random.randint(1,101)
+            if num<=50: 
+                return 'b'
+            else: 
+                return 'c'
+        else:
+            if 'bbbbb' in their_history:
+                return 'b'       
+            else:
+                return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
