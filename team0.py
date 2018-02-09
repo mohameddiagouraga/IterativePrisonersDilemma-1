@@ -38,10 +38,10 @@ def move(my_history, their_history, my_score, their_score):
         cCount=0
         bCount=0
         for i in range(len(their_history)):
-            if i!=0 and my_history[i]==myLastMove:
-                if their_history[i-1]=='c' or their_history[i-1]=='C' :
+            if i!=len(their_history)-1 and my_history[i]==myLastMove:
+                if their_history[i+1]=='c' or their_history[i+1]=='C' :
                     cCount+=1
-                elif their_history[i-1]=='b' or their_history[i-1]=='B':
+                elif their_history[i+1]=='b' or their_history[i+1]=='B':
                     bCount+=1
         num = random.randint(1,cCount+bCount)
         if num<=bCount:
