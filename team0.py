@@ -29,7 +29,7 @@ def move(my_history, their_history, my_score, their_score):
     
     if len(my_history)<=10:
         num = random.randint(1,101)
-        if num <=10:
+        if num <=50:
             return 'b'
         else:
             return 'c'
